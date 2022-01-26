@@ -1,5 +1,6 @@
 const baseUrl = process.env.BASE_URL
 import cors from "../middleware/cors"
+import runMiddleware from "../middleware/runMiddleware";
 
 export const getKurir = async (kurir,awb) => {
     const res = await fetch(`https://api.binderbyte.com/v1/track?api_key=c6eb494d11e49e5f0d5a4286df382eb152aa512b78b74870871967685b315708&courier=${kurir}&awb=${awb}`, {
@@ -15,8 +16,8 @@ export const getKurir = async (kurir,awb) => {
 }
 
 export const getData = async (url,token) => {
+    await runMiddleware(req, res, cors);
     const res = await fetch(`${baseUrl}/api/${url}`, {
-        cors,
         method: 'GET',
         headers: {
             'Authorization': token
@@ -29,8 +30,8 @@ export const getData = async (url,token) => {
 }
 
 export const postData = async (url, post, token) => {
+    await runMiddleware(req, res, cors);
     const res = await fetch(`${baseUrl}/api/${url}`, {
-        cors,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -44,8 +45,9 @@ export const postData = async (url, post, token) => {
 }
 
 export const putData = async (url, post, token) => {
+    await runMiddleware(req, res, cors);
     const res = await fetch(`${baseUrl}/api/${url}`, {
-        cors,
+        
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -58,8 +60,8 @@ export const putData = async (url, post, token) => {
     return data
 }
 export const putDataa = async (url, post,) => {
+    await runMiddleware(req, res, cors);
     const res = await fetch(`${baseUrl}/api/${url}`, {
-        cors,
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -72,8 +74,8 @@ export const putDataa = async (url, post,) => {
 }
 
 export const patchData = async (url, post, token) => {
+    await runMiddleware(req, res, cors);
     const res = await fetch(`${baseUrl}/api/${url}`, {
-        cors,
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -88,9 +90,8 @@ export const patchData = async (url, post, token) => {
 
 
 export const deleteData = async (url, token) => {
-    
+    await runMiddleware(req, res, cors);
     const res = await fetch(`${baseUrl}/api/${url}`, {
-        cors,
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

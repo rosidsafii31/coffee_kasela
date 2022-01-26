@@ -1,3 +1,4 @@
+// next.config.js
 module.exports = {
     async headers() {
         return [
@@ -24,6 +25,6 @@ module.exports = {
         "ONGKIR_PROVINCE":"	https://api.rajaongkir.com/starter/province",
         "ONGKIR_CITY":"https://api.rajaongkir.com/starter/city",
         "ONGKIR_COST":"https://api.rajaongkir.com/starter/cost",
-        "API_KEY":"8d6fc0332644e2a43214a569d567a936"
-    }
-};
+        "API_KEY":"8d6fc0332644e2a43214a569d567a936",
+    },
+}

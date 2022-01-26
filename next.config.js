@@ -1,4 +1,18 @@
 module.exports = {
+    async headers() {
+        return [
+          {
+            // matching all API routes
+            source: "/api/:path*",
+            headers: [
+              { key: "Access-Control-Allow-Credentials", value: "true" },
+              { key: "Access-Control-Allow-Origin", value: "*" },
+              { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+              { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+            ]
+          }
+        ]
+      },
     env: {
         "BASE_URL": "https://coffee-kasela.vercel.app/",
         "MONGODB_URL": "mongodb+srv://kasela:kasela@kasela.kyqcg.mongodb.net/kasela?retryWrites=true&w=majority",
@@ -12,4 +26,4 @@ module.exports = {
         "ONGKIR_COST":"https://api.rajaongkir.com/starter/cost",
         "API_KEY":"8d6fc0332644e2a43214a569d567a936"
     }
-}
+};
